@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Score Sheet</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+</head>
+<body>
+	<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <table class="table" border="1" cellpadding="5" cellspacing="0">
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Score</th>
+            <th>Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>English</td>
+            <td><input type="text" id="score0" oninput="get_result('score0', 'grade0')"></td>
+            <td><input type="text" id="grade0" ></td>
+          </tr>
+          <tr>
+            <td>Maths</td>
+            <td><input type="text" id="score1" oninput="get_result('score1', 'grade1')"></td>
+            <td><input type="text" id="grade1" ></td>
+          </tr>
+          <tr>
+            <td>Chemistry</td>
+            <td><input type="text" id="score2" oninput="get_result('score2', 'grade2')"></td>
+            <td><input type="text" id="grade2" ></td>
+          </tr>
+          <tr>
+            <td>Biology</td>
+            <td><input type="text" id="score3" oninput="get_result('score3', 'grade3')"></td>
+            <td><input type="text" id="grade3" ></td>
+          </tr>
+          <tr>
+            <td>French</td>
+            <td><input type="text" id="score4" oninput="get_result('score4', 'grade4')"></td>
+            <td><input type="text" id="grade4" ></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button"> Get Result</button>
+    </div>
+  </div>
+  </div>
+		<div class="row pt-3">
+			<div class="col-md-3">
+			<p>TOTAL</p>
+			</div>
+			<div class="col-md-3">
+			<p></p>
+			</div>
+		</div>
+		<div class="row pt-2">
+			<div class="col-md-3">
+			<p>Average</p>
+			</div>
+			<div class="col-md-3">
+			<p></p>
+			</div>
+		</div>
+		<div class="row pt-5">
+			<div class="col-md-3">
+			<p>Remarks</p>
+			</div>
+			<div class="col-md-3">
+			<p></p>
+			</div>
+		</div>
+</div>
+
+<script>
+  function get_result(scoreId, gradeId) {
+    var scoreValue = document.getElementById(scoreId).value.trim();
+    var gradeInput = document.getElementById(gradeId);
+    var score = Number(scoreValue);
+
+    if (scoreValue === '' || isNaN(score)) {
+      gradeInput.value = '';
+      return;
+    }
+
+    if (score <= 40) {
+      gradeInput.value = 'F';
+    } else if (score > 40 && score < 45) {
+      gradeInput.value = 'E';
+    } else if (score >= 45 && score < 50) {
+      gradeInput.value = 'D';
+    } else if (score >= 50 && score < 60) {
+      gradeInput.value = 'C';
+    } else if (score >= 60 && score < 69) {
+      gradeInput.value = 'B';
+    } else if (score >= 70) {
+      gradeInput.value = 'A';
+    } else {
+      gradeInput.value = '';
+    }
+  }
+</script>
+</script>
+</body>
+</html>
